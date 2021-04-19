@@ -17,10 +17,14 @@ public class DemoWebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
 
                 // AUTHORIZE
+                .csrf().disable();
+        http
                 .authorizeRequests().antMatchers("/css/**", "/js/**", "/img/**").permitAll()/* */.anyRequest()
                 /*    */.authenticated().and()
                 // LOGIN
-                .formLogin()/* */.defaultSuccessUrl("/items")
+                .formLogin()/* */.defaultSuccessUrl("/index")
+                        
+        
         // end
         ;
 
